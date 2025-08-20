@@ -1,0 +1,56 @@
+BANK STATEMENT - JANUARY 2024
+
+Date: 01/01/2024
+Description: Salary Credit
+Amount: 50000.00
+Type: Credit
+
+Date: 02/01/2024
+Description: Restaurant Payment - Pizza Hut
+Amount: 1200.00
+Type: Debit
+
+Date: 03/01/2024
+Description: Fuel Payment - Indian Oil
+Amount: 2500.00
+Type: Debit
+
+Date: 05/01/2024
+Description: Amazon Shopping
+Amount: 3500.00
+Type: Debit
+
+Date: 08/01/2024
+Description: Netflix Subscription
+Amount: 499.00
+Type: Debit
+
+Date: 10/01/2024
+Description: Uber Ride
+Amount: 180.00
+Type: Debit
+
+Date: 15/01/2024
+Description: Electricity Bill
+Amount: 1200.00
+Type: Debit
+
+Date: 20/01/2024
+Description: ATM Withdrawal
+Amount: 5000.00
+Type: Debit
+
+Date: 25/01/2024
+Description: Medical Store
+Amount: 800.00
+Type: Debit
+
+Date: 28/01/2024
+Description: Interest Credit
+Amount: 150.00
+Type: Credit
+
+Date: 30/01/2024
+Description: Mobile Recharge
+Amount: 299.00
+Type: Debit 

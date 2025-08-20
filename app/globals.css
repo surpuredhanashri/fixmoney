@@ -1,0 +1,560 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dropdown and navigation styles */
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-container .absolute {
+  z-index: 1000;
+}
+
+/* Ensure proper stacking context */
+nav {
+  z-index: 50;
+}
+
+/* Performance monitor positioning and behavior */
+.performance-monitor {
+  z-index: 60 !important;
+  bottom: 1rem;
+  left: 1rem;
+  position: fixed;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+/* Dark mode performance monitor */
+.dark .performance-monitor {
+  background: #1f2937;
+  border-color: #374151;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure performance monitor doesn't interfere with other elements */
+.performance-monitor {
+  max-width: 20rem;
+  min-width: 16rem;
+}
+
+/* Responsive performance monitor */
+@media (max-width: 768px) {
+  .performance-monitor {
+    bottom: 5rem;
+    left: 0.5rem;
+    right: 0.5rem;
+    max-width: none;
+    min-width: auto;
+    font-size: 0.875rem;
+  }
+  
+  .performance-monitor .text-sm {
+    font-size: 0.75rem;
+  }
+  
+  .performance-monitor .text-lg {
+    font-size: 1rem;
+  }
+  
+  /* Ensure it doesn't interfere with floating chat on mobile */
+  .floating-chat {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  /* Ensure form elements are properly sized on mobile */
+  .form-container input,
+  .form-container textarea {
+    min-height: 44px; /* Minimum touch target size */
+  }
+}
+
+@media (max-width: 480px) {
+  .performance-monitor {
+    bottom: 6rem;
+    left: 0.25rem;
+    right: 0.25rem;
+    padding: 0.75rem;
+  }
+  
+  /* Ensure it doesn't interfere with floating chat on very small screens */
+  .floating-chat {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  /* Ensure form elements are properly sized on very small screens */
+  .form-container input,
+  .form-container textarea {
+    min-height: 48px; /* Larger touch target for very small screens */
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}
+
+@media (max-width: 360px) {
+  .performance-monitor {
+    bottom: 7rem;
+    left: 0.125rem;
+    right: 0.125rem;
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  /* Ensure it doesn't interfere with floating chat on very small screens */
+  .floating-chat {
+    bottom: 0.5rem;
+    right: 0.5rem;
+  }
+  
+  /* Ensure form elements are properly sized on very small screens */
+  .form-container input,
+  .form-container textarea {
+    min-height: 48px; /* Larger touch target for very small screens */
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}
+
+/* Floating chat should be below performance monitor */
+.floating-chat {
+  z-index: 50;
+}
+
+/* Ensure proper layering */
+.performance-monitor {
+  z-index: 60 !important;
+}
+
+.floating-chat {
+  z-index: 50 !important;
+}
+
+/* Floating chat positioning and layering */
+.floating-chat {
+  z-index: 50 !important;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+}
+
+/* Floating chat button styling */
+.floating-chat {
+  transition: all 0.3s ease;
+}
+
+.floating-chat:hover {
+  transform: scale(1.1);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Form spacing and layout */
+.form-container {
+  position: relative;
+  z-index: 1;
+}
+
+.form-container input,
+.form-container textarea {
+  position: relative;
+  z-index: 2;
+}
+
+/* Form element focus states */
+input:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Dark mode focus states */
+.dark input:focus,
+.dark textarea:focus {
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+}
+
+/* Responsive form elements */
+@media (max-width: 768px) {
+  .select-container {
+    z-index: 15;
+  }
+  
+  select:focus {
+    z-index: 20;
+  }
+}
+
+/* Ensure select dropdown appears above other elements */
+select:focus {
+  z-index: 10;
+}
+
+/* Custom select arrow */
+.custom-select-wrapper {
+  position: relative;
+}
+
+.custom-select-wrapper::after {
+  content: '';
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid currentColor;
+  pointer-events: none;
+}
+
+/* Ensure select dropdown doesn't get cut off */
+.select-container {
+  overflow: visible;
+}
+
+.select-container select {
+  overflow: visible;
+}
+
+/* Ensure select dropdown has proper positioning on all devices */
+.select-container {
+  position: relative;
+  z-index: 5;
+}
+
+.select-container select:focus {
+  z-index: 10;
+}
+
+/* Mobile form improvements */
+@media (max-width: 768px) {
+  /* Ensure form elements are properly sized on mobile */
+  .form-container input,
+  .form-container textarea {
+    min-height: 44px; /* Minimum touch target size */
+  }
+  
+  /* Ensure form elements don't get cut off on mobile */
+  .form-container {
+    overflow: visible;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Ensure form elements are properly sized on very small screens */
+  .form-container input,
+  .form-container textarea {
+    min-height: 48px; /* Larger touch target for very small screens */
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}
+
+@media (max-width: 360px) {
+  /* Ensure form elements are properly sized on very small screens */
+  .form-container input,
+  .form-container textarea {
+    min-height: 48px; /* Larger touch target for very small screens */
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}
+
+:root {
+  /* Color System */
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+  --color-primary-950: #172554;
+
+  --color-success-50: #f0fdf4;
+  --color-success-100: #dcfce7;
+  --color-success-200: #bbf7d0;
+  --color-success-300: #86efac;
+  --color-success-400: #4ade80;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+  --color-success-700: #15803d;
+  --color-success-800: #166534;
+  --color-success-900: #14532d;
+  --color-success-950: #052e16;
+
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fef3c7;
+  --color-warning-200: #fde68a;
+  --color-warning-300: #fcd34d;
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+  --color-warning-800: #92400e;
+  --color-warning-900: #78350f;
+  --color-warning-950: #451a03;
+
+  --color-error-50: #fef2f2;
+  --color-error-100: #fee2e2;
+  --color-error-200: #fecaca;
+  --color-error-300: #fca5a5;
+  --color-error-400: #f87171;
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+  --color-error-700: #b91c1c;
+  --color-error-800: #991b1b;
+  --color-error-900: #7f1d1d;
+  --color-error-950: #450a0a;
+
+  /* Neutral Colors */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --color-gray-950: #030712;
+
+  /* Semantic Colors */
+  --color-bg-primary: var(--color-gray-50);
+  --color-bg-secondary: var(--color-white);
+  --color-bg-tertiary: var(--color-gray-100);
+  --color-bg-elevated: var(--color-white);
+  --color-bg-overlay: rgba(0, 0, 0, 0.5);
+  
+  --color-text-primary: var(--color-gray-900);
+  --color-text-secondary: var(--color-gray-600);
+  --color-text-tertiary: var(--color-gray-500);
+  --color-text-inverse: var(--color-white);
+  
+  --color-border-primary: var(--color-gray-200);
+  --color-border-secondary: var(--color-gray-300);
+  --color-border-focus: var(--color-primary-500);
+
+  /* Spacing System */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+
+  /* Typography Scale */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  --font-size-6xl: 3.75rem;
+  --font-size-7xl: 4.5rem;
+  --font-size-8xl: 6rem;
+  --font-size-9xl: 8rem;
+
+  /* Border Radius */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+
+  /* Box Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --shadow-3xl: 0 35px 60px -12px rgb(0 0 0 / 0.25);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Theme-specific styles */
+[data-theme="light"] {
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8fafc;
+  --color-bg-tertiary: #f1f5f9;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-border-primary: #e2e8f0;
+}
+
+[data-theme="dark"] {
+  --color-bg-primary: #0f172a;
+  --color-bg-secondary: #1e293b;
+  --color-bg-tertiary: #334155;
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #cbd5e1;
+  --color-border-primary: #475569;
+}
+
+[data-theme="blue"] {
+  --color-bg-primary: #f0f9ff;
+  --color-bg-secondary: #e0f2fe;
+  --color-bg-tertiary: #bae6fd;
+  --color-text-primary: #0c4a6e;
+  --color-text-secondary: #0369a1;
+  --color-border-primary: #7dd3fc;
+}
+
+[data-theme="green"] {
+  --color-bg-primary: #f0fdf4;
+  --color-bg-secondary: #dcfce7;
+  --color-bg-tertiary: #bbf7d0;
+  --color-text-primary: #064e3b;
+  --color-text-secondary: #047857;
+  --color-border-primary: #6ee7b7;
+}
+
+[data-theme="purple"] {
+  --color-bg-primary: #faf5ff;
+  --color-bg-secondary: #f3e8ff;
+  --color-bg-tertiary: #e9d5ff;
+  --color-text-primary: #581c87;
+  --color-text-secondary: #7c3aed;
+  --color-border-primary: #c4b5fd;
+}
+
+[data-theme="sunset"] {
+  --color-bg-primary: #fff7ed;
+  --color-bg-secondary: #fed7aa;
+  --color-bg-tertiary: #fdba74;
+  --color-text-primary: #7c2d12;
+  --color-text-secondary: #ea580c;
+  --color-border-primary: #fb923c;
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+/* Theme transition classes */
+.theme-light {
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+.theme-dark {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+.theme-blue {
+  background-color: #f0f9ff;
+  color: #0c4a6e;
+}
+
+.theme-green {
+  background-color: #f0fdf4;
+  color: #064e3b;
+}
+
+.theme-purple {
+  background-color: #faf5ff;
+  color: #581c87;
+}
+
+.theme-sunset {
+  background-color: #fff7ed;
+  color: #7c2d12;
+}
+
+/* Enhanced form styles */
+.input-field {
+  @apply w-full px-4 py-3 rounded-2xl border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-primary-500 dark:focus:border-primary-400 focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-900 transition-all duration-200 shadow-sm hover:shadow-md;
+}
+
+.btn-primary {
+  @apply bg-gradient-to-r from-primary-600 to-success-600 hover:from-primary-700 hover:to-success-700 text-white font-semibold py-3 px-6 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300;
+}
+
+.btn-secondary {
+  @apply bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 font-semibold py-3 px-6 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300;
+}
+
+/* Enhanced shadows */
+.shadow-3xl {
+  box-shadow: 0 35px 60px -12px rgb(0 0 0 / 0.25);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles */
+*:focus {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+/* Selection styles */
+::selection {
+  background-color: var(--color-primary-200);
+  color: var(--color-primary-900);
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gray-300);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-400);
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: var(--color-gray-800);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--color-gray-600);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-500);
+} 
