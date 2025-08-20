@@ -11,7 +11,7 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
-    "@auth/core": "^0.40.0",
+    "@auth/core": "0.34.2",
     "@auth/nextjs": "^0.0.0-380f8d56",
     "@hookform/resolvers": "^3.3.2",
     "@next/font": "^14.2.15",
@@ -29,7 +29,7 @@
     "date-fns": "^2.30.0",
     "framer-motion": "^10.18.0",
     "lucide-react": "^0.303.0",
-    "next": "14.0.4",
+    "next": "^13.5.11",
     "next-auth": "^4.24.11",
     "next-seo": "^6.4.0",
     "next-sitemap": "^4.2.3",
