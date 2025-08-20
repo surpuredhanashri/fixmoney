@@ -1,85 +1,88 @@
-import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
-import Providers from '@/components/Providers';
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
-import PerformanceMonitor from '@/components/PerformanceMonitor';
-import FloatingChat from '@/components/FloatingChat';
-import { Toaster } from 'react-hot-toast';
-import './globals.css';
+import type { Metadata } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
+import Providers from "@/components/Providers";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import PerformanceMonitor from "@/components/PerformanceMonitor";
+import FloatingChat from "@/components/FloatingChat";
+import { Toaster } from "react-hot-toast";
+import "./globals.css";
 
 // Font optimization
 const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
   preload: true,
 });
 
 const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-jetbrains-mono',
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-jetbrains-mono",
   preload: true,
 });
 
 export const metadata: Metadata = {
   title: {
-    default: 'FixMoney.in - Financial Calculators & Budget Tools',
-    template: '%s | FixMoney.in'
+    default: "FixMoney.in - Financial Calculators & Budget Tools",
+    template: "%s | FixMoney.in",
   },
-  description: 'Professional financial calculators for EMI, SIP, FD, PPF, tax planning, and budget analysis. AI-powered tools for smart financial decisions.',
+  description:
+    "Professional financial calculators for EMI, SIP, FD, PPF, tax planning, and budget analysis. AI-powered tools for smart financial decisions.",
   keywords: [
-    'financial calculator',
-    'EMI calculator',
-    'SIP calculator',
-    'FD calculator',
-    'PPF calculator',
-    'tax calculator',
-    'budget planner',
-    'investment calculator',
-    'loan calculator',
-    'retirement planning',
-    'wealth management',
-    'financial planning'
+    "financial calculator",
+    "EMI calculator",
+    "SIP calculator",
+    "FD calculator",
+    "PPF calculator",
+    "tax calculator",
+    "budget planner",
+    "investment calculator",
+    "loan calculator",
+    "retirement planning",
+    "wealth management",
+    "financial planning",
   ],
-  authors: [{ name: 'FixMoney Team' }],
-  creator: 'FixMoney.in',
-  publisher: 'FixMoney.in',
+  authors: [{ name: "FixMoney Team" }],
+  creator: "FixMoney.in",
+  publisher: "FixMoney.in",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://fixmoney.in'),
+  metadataBase: new URL("https://fixmoney.in"),
   alternates: {
-    canonical: '/',
+    canonical: "/",
     languages: {
-      'en-US': '/en-US',
+      "en-US": "/en-US",
     },
   },
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://fixmoney.in',
-    title: 'FixMoney.in - Financial Calculators & Budget Tools',
-    description: 'Professional financial calculators for EMI, SIP, FD, PPF, tax planning, and budget analysis. AI-powered tools for smart financial decisions.',
-    siteName: 'FixMoney.in',
+    type: "website",
+    locale: "en_US",
+    url: "https://fixmoney.in",
+    title: "FixMoney.in - Financial Calculators & Budget Tools",
+    description:
+      "Professional financial calculators for EMI, SIP, FD, PPF, tax planning, and budget analysis. AI-powered tools for smart financial decisions.",
+    siteName: "FixMoney.in",
     images: [
       {
-        url: '/og-image.png',
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: 'FixMoney.in - Financial Calculators',
+        alt: "FixMoney.in - Financial Calculators",
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'FixMoney.in - Financial Calculators & Budget Tools',
-    description: 'Professional financial calculators for EMI, SIP, FD, PPF, tax planning, and budget analysis.',
-    images: ['/og-image.png'],
-    creator: '@fixmoney',
+    card: "summary_large_image",
+    title: "FixMoney.in - Financial Calculators & Budget Tools",
+    description:
+      "Professional financial calculators for EMI, SIP, FD, PPF, tax planning, and budget analysis.",
+    images: ["/og-image.png"],
+    creator: "@fixmoney",
   },
   robots: {
     index: true,
@@ -87,21 +90,21 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   verification: {
-    google: 'your-google-verification-code',
-    yandex: 'your-yandex-verification-code',
-    yahoo: 'your-yahoo-verification-code',
+    google: "your-google-verification-code",
+    yandex: "your-yandex-verification-code",
+    yahoo: "your-yahoo-verification-code",
   },
-  category: 'Finance',
-  classification: 'Financial Tools',
+  category: "Finance",
+  classification: "Financial Tools",
   other: {
-    'msapplication-TileColor': '#3b82f6',
-    'theme-color': '#3b82f6',
+    "msapplication-TileColor": "#3b82f6",
+    "theme-color": "#3b82f6",
   },
 };
 
@@ -126,18 +129,22 @@ export default function RootLayout({
       <head>
         {/* Preload critical resources */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+
         {/* DNS prefetch for external domains */}
         <link rel="dns-prefetch" href="//www.google-analytics.com" />
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-        
+
         {/* Manifest and icons */}
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        
+
         {/* Structured Data */}
         <script
           type="application/ld+json"
@@ -145,50 +152,56 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebApplication",
-              "name": "FixMoney.in",
-              "description": "Professional financial calculators for EMI, SIP, FD, PPF, tax planning, and budget analysis.",
-              "url": "https://fixmoney.in",
-              "applicationCategory": "FinanceApplication",
-              "operatingSystem": "Web Browser",
-              "offers": {
+              name: "FixMoney.in",
+              description:
+                "Professional financial calculators for EMI, SIP, FD, PPF, tax planning, and budget analysis.",
+              url: "https://fixmoney.in",
+              applicationCategory: "FinanceApplication",
+              operatingSystem: "Web Browser",
+              offers: {
                 "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
+                price: "0",
+                priceCurrency: "USD",
               },
-              "author": {
+              author: {
                 "@type": "Organization",
-                "name": "FixMoney.in"
+                name: "FixMoney.in",
               },
-              "featureList": [
+              featureList: [
                 "EMI Calculator",
-                "SIP Calculator", 
+                "SIP Calculator",
                 "FD Calculator",
                 "PPF Calculator",
                 "Tax Calculator",
-                "Budget Analysis"
-              ]
-            })
+                "Budget Analysis",
+              ],
+            }),
           }}
         />
+        {process.env.NODE_ENV === "production" && (
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5822028045506763"
+            crossOrigin="anonymous"
+          ></script>
+        )}
       </head>
       <body className={`${inter.className} antialiased`}>
         <Providers session={null}>
           <div className="min-h-screen flex flex-col">
             <Navigation />
-            <main className="flex-1">
-              {children}
-            </main>
+            <main className="flex-1">{children}</main>
             <Footer />
-            
+
             {/* Performance Monitor - Now inside ThemeProvider */}
             <PerformanceMonitor />
-            
+
             {/* Floating Chat */}
             <FloatingChat />
             <Toaster />
           </div>
         </Providers>
-        
+
         {/* Performance Monitoring */}
         <script
           dangerouslySetInnerHTML={{
@@ -214,10 +227,10 @@ export default function RootLayout({
                     .catch(error => console.log('SW registration failed'));
                 });
               }
-            `
+            `,
           }}
         />
       </body>
     </html>
   );
-} 
+}
