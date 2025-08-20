@@ -22,7 +22,7 @@ if (!clientId || !clientSecret) {
   console.error('Please check your .env.local file');
 }
 
-export const authOptions: NextAuthOptions = {
+const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
       clientId: clientId!,

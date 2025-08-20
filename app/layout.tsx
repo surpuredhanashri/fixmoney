@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from 'next';
+import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import Providers from '@/components/Providers';
 import Navigation from '@/components/Navigation';
@@ -105,16 +105,16 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  maximumScale: 5,
-  userScalable: true,
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#3b82f6' },
-    { media: '(prefers-color-scheme: dark)', color: '#60a5fa' },
-  ],
-};
+// export const viewport: Viewport = {
+//   width: 'device-width',
+//   initialScale: 1,
+//   maximumScale: 5,
+//   userScalable: true,
+//   themeColor: [
+//     { media: '(prefers-color-scheme: light)', color: '#3b82f6' },
+//     { media: '(prefers-color-scheme: dark)', color: '#60a5fa' },
+//   ],
+// };
 
 export default function RootLayout({
   children,
